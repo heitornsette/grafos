@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Mapa de Grafos - Brasil</title>
-
   </head>
   <body class="bg-slate-50 h-screen flex flex-col font-sans">
     <header class="bg-white border-b border-slate-200 p-4 shadow-sm">
@@ -36,23 +35,35 @@
         </ul>
         <h2 class="font-semibold text-slate-700 mb-4 border-b pb-2">Representação</h2>
         <div class="flex flex-col gap-2 mb-8">
-          <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm transition cursor-pointer">
+          <button
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm transition cursor-pointer"
+            onclick="renderizarGrafo()">
             Lista de Adjacência
           </button>
-          <button class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer">
+          <button
+            class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer"
+            onclick="
+              exibirMatrizTabela()
+              exibirMatrizConsole()
+            ">
             Matriz de Adjacência
           </button>
-          <button class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer">
+          <button
+            class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer">
             Matriz de Incidência
           </button>
         </div>
       </aside>
 
-      <div id="grafo" class="flex-grow bg-white relative h-full w-full"></div>
+      <div id="modalConteudo" class="flex-grow bg-white relative w-full h-full"></div>
     </main>
 
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
-    <script src="listaIndexada.js"></script>
-    <script src="visualizacao.js"></script>
+    <script src="dados.js"></script>
+    <script src="logica/listaIndexada.js"></script>
+    <script src="logica/matrizDeAdjacencia.js"></script>
+
+    <script src="visualizacao/visualizacaoAdjacencia.js"></script>
+    <script src="visualizacao/visualizacaoLista.js"></script>
   </body>
 </html>

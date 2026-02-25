@@ -39,48 +39,54 @@ const coordenadas = {
   "RS": { x: 10, y: 480 }
 }
 
-const nodes = new vis.DataSet(
-  estados.map(estado => {
-    const regiao = regiaoEstado[estado]
-    const cor = coresRegioes[regiao]
-    const cordenada = coordenadas[estado]
+window.addEventListener("load", event => {
+  renderizarGrafo()
+})
 
-    return {
-      id: estado,
-      label: estado,
-      color: cor,
-      x: cordenada.x,
-      y: cordenada.y,
-    }
-  }),
-)
+function renderizarGrafo() {
+  const nodes = new vis.DataSet(
+    estados.map(estado => {
+      const regiao = regiaoEstado[estado]
+      const cor = coresRegioes[regiao]
+      const cordenada = coordenadas[estado]
 
-const edges = new vis.DataSet(ligacoes.map(([origem, destino]) => ({from: origem, to: destino})))
+      return {
+        id: estado,
+        label: estado,
+        color: cor,
+        x: cordenada.x,
+        y: cordenada.y,
+      }
+    }),
+  )
 
-const container = document.querySelector("#grafo")
-const dados = {nodes: nodes, edges: edges}
+  const edges = new vis.DataSet(ligacoes.map(([origem, destino]) => ({from: origem, to: destino})))
 
-const opcoes = {
-  nodes: {
-    font: {
-      face: "Inter, sans-serif",
-      size: 14,
-      color: "#ffffff",
+  const container = document.querySelector("#modalConteudo")
+  const dados = {nodes: nodes, edges: edges}
+
+  const opcoes = {
+    nodes: {
+      font: {
+        face: "Inter, sans-serif",
+        size: 14,
+        color: "#ffffff",
+      },
+      shape: "box",
+      size: 16,
     },
-    shape: "box",
-    size: 16,
-  },
-  interaction: {
-    dragNodes: false,
-    dragView: false,
-    zoomView: false,
-  },
-  physics: {
-    enabled: false,
-    stabilization: {
-      iterations: 1000,
+    interaction: {
+      dragNodes: false,
+      dragView: false,
+      zoomView: false,
     },
-  },
+    physics: {
+      enabled: false,
+      stabilization: {
+        iterations: 1000,
+      },
+    },
+  }
+
+  const network = new vis.Network(container, dados, opcoes)
 }
-
-const network = new vis.Network(container, dados, opcoes)
