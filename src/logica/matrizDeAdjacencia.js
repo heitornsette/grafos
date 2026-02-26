@@ -1,7 +1,7 @@
 function gerarMatrizAdjacencia(estados, ligacoes) {
-  const matriz = Array(27)
+  const matriz = Array(estados.length)
     .fill()
-    .map(() => Array(27).fill(0))
+    .map(() => Array(estados.length).fill(0))
 
   ligacoes.forEach(([origem, destino]) => {
     const i = estados.indexOf(origem)

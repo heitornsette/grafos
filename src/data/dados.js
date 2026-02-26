@@ -1,4 +1,24 @@
 // prettier-ignore
+const estados = [
+  "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", 
+  "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", 
+  "RS", "RO", "RR", "SC", "SP", "SE", "TO"
+]
+
+// prettier-ignore
+const ligacoes = [
+  ["AC", "AM"], ["AC", "RO"], ["AM", "RR"], ["AM", "RO"], ["AM", "MT"], ["AM", "PA"],
+  ["RR", "PA"], ["RO", "MT"], ["PA", "AP"], ["PA", "MA"], ["PA", "TO"], ["PA", "MT"],
+  ["MA", "PI"], ["MA", "TO"], ["PI", "CE"], ["PI", "PE"], ["PI", "BA"], ["PI", "TO"],
+  ["CE", "RN"], ["CE", "PB"], ["CE", "PE"], ["RN", "PB"], ["PB", "PE"], ["PE", "AL"], 
+  ["PE", "BA"], ["AL", "SE"], ["AL", "BA"], ["SE", "BA"], ["BA", "ES"], ["BA", "MG"], 
+  ["BA", "GO"], ["BA", "TO"], ["MT", "MS"], ["MT", "GO"], ["MT", "TO"], ["MS", "GO"], 
+  ["MS", "MG"], ["MS", "SP"], ["MS", "PR"], ["GO", "DF"], ["GO", "MG"], ["DF", "MG"],
+  ["MG", "ES"], ["MG", "RJ"], ["MG", "SP"], ["ES", "RJ"], ["RJ", "SP"], ["SP", "PR"],
+  ["PR", "SC"], ["SC", "RS"]
+]
+
+// prettier-ignore
 const coresRegioes = {
   "Norte": "#10b981",
   "Nordeste": "#3b82f6",
@@ -37,56 +57,4 @@ const coordenadas = {
 
   "PR": { x: 20, y: 360 },    "SC": { x: 40, y: 410 },
   "RS": { x: 10, y: 480 }
-}
-
-window.addEventListener("load", event => {
-  renderizarGrafo()
-})
-
-function renderizarGrafo() {
-  const nodes = new vis.DataSet(
-    estados.map(estado => {
-      const regiao = regiaoEstado[estado]
-      const cor = coresRegioes[regiao]
-      const cordenada = coordenadas[estado]
-
-      return {
-        id: estado,
-        label: estado,
-        color: cor,
-        x: cordenada.x,
-        y: cordenada.y,
-      }
-    }),
-  )
-
-  const edges = new vis.DataSet(ligacoes.map(([origem, destino]) => ({from: origem, to: destino})))
-
-  const container = document.querySelector("#modalConteudo")
-  const dados = {nodes: nodes, edges: edges}
-
-  const opcoes = {
-    nodes: {
-      font: {
-        face: "Inter, sans-serif",
-        size: 14,
-        color: "#ffffff",
-      },
-      shape: "box",
-      size: 16,
-    },
-    interaction: {
-      dragNodes: false,
-      dragView: false,
-      zoomView: false,
-    },
-    physics: {
-      enabled: false,
-      stabilization: {
-        iterations: 1000,
-      },
-    },
-  }
-
-  const network = new vis.Network(container, dados, opcoes)
 }

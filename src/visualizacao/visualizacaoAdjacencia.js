@@ -1,4 +1,4 @@
-function exibirMatrizConsole() {
+function exibirMatrizAdjacenciaConsole() {
   console.log("Matriz de Adjacência Gerada:")
   console.table(gerarMatrizAdjacencia(estados, ligacoes))
 }

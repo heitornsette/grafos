@@ -1,7 +1,7 @@
 function criarGrafos() {
   const arestas = {}
   const vertices = []
-  function criarVertices(vertice) {
+  function criarVertice(vertice) {
     vertices.push(vertice)
     arestas[vertice] = []
   }
@@ -16,12 +16,12 @@ function criarGrafos() {
     })
     console.log(grafico)
   }
-  return {criarVertices, criarLigacao, display}
+  return {criarVertice, criarLigacao, display}
 }
 
 const grafos = criarGrafos()
 
-estados.forEach(estado => grafos.criarVertices(estado))
+estados.forEach(estado => grafos.criarVertice(estado))
 
 ligacoes.forEach(([a, b]) => grafos.criarLigacao(a, b))
 
