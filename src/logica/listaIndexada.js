@@ -12,15 +12,7 @@ function criarGrafos() {
     arestas[vertice2].push(vertice1)
   }
 
-  function display() {
-    let grafico = ""
-    vertices.forEach((vertice) => {
-      grafico += vertice + "->" + arestas[vertice].join(", ") + "\n"
-    })
-    console.log(grafico)
-  }
-
-  return { criarVertice, criarLigacao, display, arestas, vertices }
+  return { criarVertice, criarLigacao, arestas, vertices }
 }
 
 function gerarArraysListaIndexada(estados, ligacoes) {
@@ -42,15 +34,5 @@ function gerarArraysListaIndexada(estados, ligacoes) {
 
   alfa.push(beta.length)
 
-  return { alfa, beta}
+  return { alfa, beta }
 }
-
-function exibirListaIndexada() {
-  const { alfa, beta } = gerarArraysListaIndexada(estados, ligacoes)
-
-  console.log("Lista indexada gerada:")
-  console.log("Alfa:", alfa)
-  console.log("Beta:", beta)
-}
-
-exibirListaIndexada()

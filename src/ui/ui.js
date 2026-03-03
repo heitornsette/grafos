@@ -23,12 +23,10 @@ function selecionarVisualizacao(tipo) {
 
   if (tipo === "adjacencia") {
     exibirMatrizTabela()
-    exibirMatrizAdjacenciaConsole()
   }
 
   if (tipo === "incidencia") {
     exibirMatrizIncidenciaTabela()
-    exibirMatrizIncidenciaConsole()
   }
 
   atualizarBotoes(tipo)
