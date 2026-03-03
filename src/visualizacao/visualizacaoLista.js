@@ -76,7 +76,13 @@ function renderizarGrafo() {
 
   const network = new vis.Network(grafoContainer, dados, opcoes)
 
-  network.moveTo({
-    scale: 0.3,
-  })
+  function ajustarEnquadramento() {
+    network.fit({
+      animation: false,
+      padding: 40,
+    })
+  }
+
+  requestAnimationFrame(ajustarEnquadramento)
+  setTimeout(ajustarEnquadramento, 10)
 }

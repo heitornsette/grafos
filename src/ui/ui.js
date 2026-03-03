@@ -3,6 +3,7 @@ function atualizarBotoes(botaoAtivo) {
     lista: document.getElementById("btnLista"),
     adjacencia: document.getElementById("btnAdjacencia"),
     incidencia: document.getElementById("btnIncidencia"),
+    estatistica: document.getElementById("btnEstatisticas"),
   }
 
   Object.entries(botoes).forEach(([tipo, botao]) => {
@@ -27,6 +28,10 @@ function selecionarVisualizacao(tipo) {
 
   if (tipo === "incidencia") {
     exibirMatrizIncidenciaTabela()
+  }
+
+  if (tipo === "estatistica") {
+    exibirEstatisticas()
   }
 
   atualizarBotoes(tipo)
