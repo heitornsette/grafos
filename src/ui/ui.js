@@ -4,6 +4,7 @@ function atualizarBotoes(botaoAtivo) {
     adjacencia: document.getElementById("btnAdjacencia"),
     incidencia: document.getElementById("btnIncidencia"),
     estatistica: document.getElementById("btnEstatisticas"),
+    quatroCores: document.getElementById("btnQuatroCores"),
   }
 
   Object.entries(botoes).forEach(([tipo, botao]) => {
@@ -32,6 +33,10 @@ function selecionarVisualizacao(tipo) {
 
   if (tipo === "estatistica") {
     exibirEstatisticas()
+  }
+
+  if (tipo === "quatroCores") {
+    exibirQuatroCores()
   }
 
   atualizarBotoes(tipo)

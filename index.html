@@ -8,22 +8,14 @@
   </head>
   <body class="bg-slate-50 h-screen flex flex-col font-sans">
     <header class="bg-white border-b border-slate-200 p-4 shadow-sm">
-      <h1
-        class="text-xl font-bold text-slate-800 text-center uppercase tracking-wider">
-        Conexões Estaduais do Brasil
-      </h1>
+      <h1 class="text-xl font-bold text-slate-800 text-center uppercase tracking-wider">Conexões Estaduais do Brasil</h1>
     </header>
 
     <main class="flex flex-grow overflow-hidden">
-      <aside
-        class="w-64 bg-white border-r border-slate-200 p-6 hidden md:block shadow-inner shrink-0">
-        <h2 class="font-semibold text-slate-700 mb-4 border-b pb-2">
-          Legenda de Regiões
-        </h2>
+      <aside class="w-64 bg-white border-r border-slate-200 p-6 hidden md:block shadow-inner shrink-0">
+        <h2 class="font-semibold text-slate-700 mb-4 border-b pb-2">Legenda de Regiões</h2>
         <ul class="space-y-3 mb-6">
-          <li class="flex items-center text-sm text-slate-600">
-            <span class="w-4 h-4 rounded-full bg-[#10b981] mr-3"></span> Norte
-          </li>
+          <li class="flex items-center text-sm text-slate-600"><span class="w-4 h-4 rounded-full bg-[#10b981] mr-3"></span> Norte</li>
           <li class="flex items-center text-sm text-slate-600">
             <span class="w-4 h-4 rounded-full bg-[#3b82f6] mr-3"></span>
             Nordeste
@@ -32,56 +24,38 @@
             <span class="w-4 h-4 rounded-full bg-[#ffce1b] mr-3"></span>
             Centro-Oeste
           </li>
-          <li class="flex items-center text-sm text-slate-600">
-            <span class="w-4 h-4 rounded-full bg-[#f59e0b] mr-3"></span> Sudeste
-          </li>
-          <li class="flex items-center text-sm text-slate-600">
-            <span class="w-4 h-4 rounded-full bg-[#ef4444] mr-3"></span> Sul
-          </li>
+          <li class="flex items-center text-sm text-slate-600"><span class="w-4 h-4 rounded-full bg-[#f59e0b] mr-3"></span> Sudeste</li>
+          <li class="flex items-center text-sm text-slate-600"><span class="w-4 h-4 rounded-full bg-[#ef4444] mr-3"></span> Sul</li>
         </ul>
-        <h2 class="font-semibold text-slate-700 mb-4 border-b pb-2">
-          Representação
-        </h2>
+        <h2 class="font-semibold text-slate-700 mb-4 border-b pb-2">Representação</h2>
         <div class="flex flex-col gap-2 mb-8">
-          <button
-            id="btnLista"
-            class="bg-slate-100 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer"
-            onclick="selecionarVisualizacao('lista')">
-            Lista indexada
-          </button>
-          <button
-            id="btnAdjacencia"
-            class="bg-slate-100 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer"
-            onclick="selecionarVisualizacao('adjacencia')">
+          <button id="btnLista" class="bg-slate-100 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer" onclick="selecionarVisualizacao('lista')">Lista indexada</button>
+          <button id="btnAdjacencia" class="bg-slate-100 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer" onclick="selecionarVisualizacao('adjacencia')">
             Matriz de Adjacência
           </button>
-          <button
-            id="btnIncidencia"
-            class="bg-slate-100 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer"
-            onclick="selecionarVisualizacao('incidencia')">
+          <button id="btnIncidencia" class="bg-slate-100 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer" onclick="selecionarVisualizacao('incidencia')">
             Matriz de Incidência
           </button>
-          <button
-            id="btnEstatisticas"
-            class="bg-slate-100 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer"
-            onclick="selecionarVisualizacao('estatistica')">
-            Estatísticas
+          <button id="btnQuatroCores" class="bg-slate-100 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer" onclick="selecionarVisualizacao('quatroCores')">
+            Teorema das 4 Cores
           </button>
+          <button id="btnEstatisticas" class="bg-slate-100 text-slate-700 px-4 py-2 rounded text-sm transition cursor-pointer" onclick="selecionarVisualizacao('estatistica')">Estatísticas</button>
         </div>
       </aside>
 
-      <div
-        id="modalConteudo"
-        class="flex-grow bg-white relative w-full h-full"></div>
+      <div id="modalConteudo" class="flex-grow bg-white relative w-full h-full"></div>
     </main>
 
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <script src="/src/data/dados.js"></script>
+
     <script src="/src/logica/listaIndexada.js"></script>
     <script src="/src/logica/matrizDeAdjacencia.js"></script>
     <script src="/src/logica/matrizDeIncidencia.js"></script>
     <script src="/src/logica/estatisticas.js"></script>
+    <script src="/src/logica/quatroCores.js"></script>
 
+    <script src="/src/visualizacao/visualizacaoCores.js"></script>
     <script src="/src/visualizacao/visualizacaoLista.js"></script>
     <script src="/src/visualizacao/visualizacaoAdjacencia.js"></script>
     <script src="/src/visualizacao/visualizacaoIncidencia.js"></script>
